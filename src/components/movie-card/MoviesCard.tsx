@@ -1,4 +1,5 @@
 import { OljebraStar } from 'oljebra-rating'
+import { motion } from 'framer-motion'
 import React from 'react'
 import { useNavigate } from 'react-router'
 import "./styles.scss"
@@ -23,11 +24,13 @@ const MovieCard  : React.FC<IMovieCard>= (props) => {
     }, 300)
   }
   return (
-    <div className="movie-card" onClick={navigateToShow}>
-      <img src={image} width={width} height ={ height} alt={alt} className="" />
+    <motion.div className="movie-card" onClick={navigateToShow}
+      whileHover = {{scale :1.2 }}
+    >
+      <img src={image} style ={{maxWidth : "100%", maxHeight : height}} alt={alt} className="" />
         <OljebraStar gap='2px' max={5} size ={12} rating ={rating} color="gold" backgroundColor='#CBCBCB'/>
       <p className="">{text}</p>
-    </div>
+    </motion.div>
   )
 }
 
